@@ -19,7 +19,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/AplikasiBelajarAlamInteraktif-">
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/categories" element={<CategoriesPage />} />
