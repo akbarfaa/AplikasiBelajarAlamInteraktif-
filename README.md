@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# Aplikasi Belajar Alam Interaktif
 
-TODO: Document your project here
+Aplikasi pembelajaran multimedia interaktif untuk mengenal hewan, buah, dan tanaman dalam dua bahasa.
