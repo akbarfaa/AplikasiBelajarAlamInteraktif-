@@ -6,7 +6,7 @@ import animals from "@/data/animals.json";
 import fruits from "@/data/fruits.json";
 import plants from "@/data/plants.json";
 import type { NatureItem } from "@/components/NatureCard";
-import { playClick, playSuccess, playWrong, speakWord } from "@/utils/audio";
+import { playClick, playSuccess, playWrong, speakWord, playPop } from "@/utils/audio";
 import { recordScore } from "@/utils/storage";
 import { CheckCircle2, XCircle, Trophy, RotateCcw } from "lucide-react";
 
