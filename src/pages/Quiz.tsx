@@ -6,7 +6,7 @@ import animals from "@/data/animals.json";
 import fruits from "@/data/fruits.json";
 import plants from "@/data/plants.json";
 import type { NatureItem } from "@/components/NatureCard";
-import { playClick, playSuccess, playWrong, playSound } from "@/utils/audio";
+import { playClick, playSuccess, playWrong, speakWord } from "@/utils/audio";
 import { recordScore } from "@/utils/storage";
 import { CheckCircle2, XCircle, Trophy, RotateCcw } from "lucide-react";
 
@@ -156,7 +156,7 @@ export default function Quiz() {
         >
           <div className="text-center mb-6">
             <button
-              onClick={() => playSound(current.correct.sound)}
+              onClick={() => speakWord(current.correct.englishName, current.correct.indonesianName, lang)}
               className="inline-flex items-center gap-2 rounded-full bg-gradient-sunshine px-4 py-2 font-bold text-highlight-foreground shadow-soft mb-3 hover:scale-105 transition-transform"
             >
               🔊 Listen

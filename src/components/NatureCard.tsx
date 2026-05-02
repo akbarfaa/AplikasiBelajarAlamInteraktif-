@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useLang, localized } from "@/context/LanguageContext";
-import { playPop, playSound } from "@/utils/audio";
+import { playPop, speakWord } from "@/utils/audio";
 
 export interface NatureItem {
   id: string;
@@ -44,7 +44,7 @@ export const NatureCard = ({ item, category, onClick, index }: Props) => {
       whileTap={{ scale: 0.95, rotate: 2 }}
       onClick={() => {
         playPop();
-        playSound(item.sound);
+        speakWord(item.englishName, item.indonesianName, lang);
         onClick(item);
       }}
       className="group relative flex flex-col items-center gap-2 rounded-3xl bg-card border-4 border-primary/10 p-5 shadow-card hover:shadow-pop hover:border-primary/40 transition-all overflow-hidden text-left"

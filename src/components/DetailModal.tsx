@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, Volume2 } from "lucide-react";
 import { useEffect } from "react";
 import { useLang, localized } from "@/context/LanguageContext";
-import { playClick, playSound } from "@/utils/audio";
+import { playClick, speakWord } from "@/utils/audio";
 import { markVisited } from "@/utils/storage";
 import type { NatureItem } from "./NatureCard";
 
@@ -93,7 +93,7 @@ export const DetailModal = ({ item, category, onClose }: Props) => {
               </div>
 
               <button
-                onClick={() => playSound(item.sound)}
+                onClick={() => speakWord(item.englishName, item.indonesianName, lang)}
                 className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-jungle text-primary-foreground font-bold py-3 shadow-pop hover:scale-[1.02] active:scale-95 transition-transform"
               >
                 <Volume2 className="h-5 w-5" /> {t("playSound")}

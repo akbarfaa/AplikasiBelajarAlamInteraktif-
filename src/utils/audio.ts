@@ -59,23 +59,21 @@ export const playWrong = () => {
   setTimeout(() => playTone(180, 0.22, "sawtooth", 0.1), 120);
 };
 
-// Play remote audio URL (animal sounds etc.) — falls back silently if blocked.
-const audioCache = new Map<string, HTMLAudioElement>();
-export const playSound = (url: string) => {
-  if (isMuted() || !url) return;
+// Speak word using Web Speech API (reliable, no network needed)
+export const speakWord = (enText: string, idText: string, lang: string) => {
+  if (isMuted() || typeof window === "undefined" || !window.speechSynthesis) return;
+  
   try {
-    let a = audioCache.get(url);
-    if (!a) {
-      a = new Audio(url);
-      a.crossOrigin = "anonymous";
-      audioCache.set(url, a);
-    }
-    a.currentTime = 0;
-    a.volume = 0.7;
-    a.play().catch(() => {
-      // fallback: pleasant chord
-      playPop();
-    });
+    window.speechSynthesis.cancel(); // stop current
+    
+    const text = lang === "id" ? idText : enText;
+    const u = new SpeechSynthesisUtterance(text);
+    
+    u.lang = lang === "id" ? "id-ID" : "en-US";
+    u.rate = 0.9; // slightly slower for clarity
+    u.pitch = 1.1; // slightly playful
+    
+    window.speechSynthesis.speak(u);
   } catch {
     playPop();
   }
