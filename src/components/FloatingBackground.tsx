@@ -4,12 +4,13 @@ import { useEffect, useMemo, useState } from "react";
 type Particle = { id: number; left: string; delay: string; size: number; emoji: string; duration: string };
 
 interface Props {
-  variant?: "sky" | "jungle" | "fruits" | "plants";
+  variant?: "sky" | "jungle" | "fruits" | "plants" | "animals";
 }
 
 const emojiByVariant: Record<string, string[]> = {
   sky: ["🦋", "🍃", "🌸", "✨", "🐦"],
   jungle: ["🍃", "🦋", "🌿", "✨"],
+  animals: ["🦁", "🐯", "🐘", "🦋", "✨"],
   fruits: ["🍎", "🍌", "🍓", "🍊", "✨"],
   plants: ["🌸", "🌼", "🦋", "🌿", "✨"],
 };
