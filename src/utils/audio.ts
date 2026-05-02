@@ -29,6 +29,12 @@ export const playTone = (freq: number, duration = 0.15, type: OscillatorType = "
   if (isMuted()) return;
   const ac = getCtx();
   if (!ac) return;
+  
+  // Browsers suspend AudioContext until user interaction
+  if (ac.state === "suspended") {
+    ac.resume();
+  }
+  
   const o = ac.createOscillator();
   const g = ac.createGain();
   o.type = type;
