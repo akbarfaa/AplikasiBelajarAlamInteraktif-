@@ -156,7 +156,10 @@ export default function Quiz() {
         >
           <div className="text-center mb-6">
             <button
-              onClick={() => speakWord(current.correct.englishName, current.correct.indonesianName, lang)}
+              onClick={() => {
+                playPop();
+                speakWord(current.correct.englishName, current.correct.indonesianName, lang);
+              }}
               className="inline-flex items-center gap-2 rounded-full bg-gradient-sunshine px-4 py-2 font-bold text-highlight-foreground shadow-soft mb-3 hover:scale-105 transition-transform"
             >
               🔊 Listen
